@@ -5,7 +5,6 @@ import {Red} from './components/Red'
 import {White} from './components/White'
 import {Cart} from './components/Cart'
 import {Checkout} from './components/Checkout'
-import {Success} from './components/Success'
 import {Home} from './components/Home'
 
 function App() {
@@ -18,7 +17,6 @@ function App() {
         <Route path="/white" element={<White />}></Route>
         <Route path="/cart" element={<Cart />}></Route>
         <Route path="/checkout" element={<Checkout />}></Route>
-        <Route path="/success" element={<Success />}></Route>
       </Routes>
     </div>
   );

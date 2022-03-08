@@ -36,9 +36,29 @@ export const Red = () => {
     }
   };
 
-  const handleClick = () => {
-    alert("Successfully added to cart !!")
-};
+  const handleClick = (e) => {
+   
+    const payload = e; 
+    try {
+      fetch("http://localhost:3500/cart", {
+        method: "POST",
+        body: JSON.stringify(payload),
+        headers: {
+          "content-type": "application/json",
+        },
+      })
+        .then((d) => d.json())
+        .then((res) => {
+          console.log("White:", res);
+          alert("Successfully added to cart !!");
+        });
+    } catch (err) {
+       alert("Already in cart !!");
+      console.log("Error:", err);
+     
+    }
+    
+  };
 
   return (
     <div id="redDivMain">
@@ -65,13 +85,12 @@ export const Red = () => {
         {data.map((e, i) => (
           <div key={i} className="redDiv">
             <img src={e.image} alt="NA" />
-
             <div className="redDetailDiv">
               <div>
                 {" "}
                 <h3 className="red_name">{e.wine}</h3>
                 <p className="red_location">{e.winery}</p>
-                <button className="cart_btn" onClick={handleClick}>
+                <button className="cart_btn" onClick={()=> handleClick(e)}>
                   Add to Cart
                 </button>
               </div>

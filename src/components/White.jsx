@@ -21,6 +21,7 @@ export const White = () => {
 
   const handleFilter = (e) => {
     setFilter(e.target.value);
+   
   };
 
   const getData = () => {
@@ -29,15 +30,37 @@ export const White = () => {
         .then((d) => d.json())
         .then((res) => {
           setData(res);
-          console.log("White wine :",res);
+          console.log("White wine :", res);
+         
         });
     } catch (err) {
       console.log("Error:", err);
+
     }
   };
 
-  const handleClick = () => {
-      alert("Successfully added to cart !!")
+  const handleClick = (e) => {
+   
+    const payload = e; 
+    try {
+      fetch("http://localhost:3500/cart", {
+        method: "POST",
+        body: JSON.stringify(payload),
+        headers: {
+          "content-type": "application/json",
+        },
+      })
+        .then((d) => d.json())
+        .then((res) => {
+          console.log("White:", res);
+          alert("Successfully added to cart !!");
+        });
+    } catch (err) {
+       alert("Already in cart !!");
+      console.log("Error:", err);
+     
+    }
+    
   };
 
   return (
@@ -71,7 +94,7 @@ export const White = () => {
                 {" "}
                 <h3 className="white_name">{e.wine}</h3>
                 <p className="white_location">{e.winery}</p>
-                <button className="white_cart_btn" onClick={handleClick}>
+                <button className="white_cart_btn" onClick={()=> handleClick(e)}>
                   Add to Cart
                 </button>
               </div>

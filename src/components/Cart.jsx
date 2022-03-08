@@ -4,56 +4,100 @@ import "./Cart.css";
 
 export const Cart = () => {
   let [data, setData] = useState([]);
-  const navigate = useNavigate();
+  let [discount,setDiscount] = useState(0);
+  let [promo,setPromo] = useState("");
+    const navigate = useNavigate();
 
   useEffect(() => {
     getData();
   }, []);
 
   const getData = () => {
-    let arr = [];
-    let res = JSON.parse(localStorage.getItem("service_cart"));
-    console.log("res:", res);
-    for (let key in res) {
-      if (res[key]) {
-        arr.push(key);
-      }
+    try {
+      fetch("http://localhost:3500/cart")
+        .then((d) => d.json())
+        .then((res) => {
+          console.log("Cart Data", res);
+          setData(res);
+        });
+    } catch (err) {
+      console.log("Error:", err);
     }
-    setData(arr);
   };
-  console.log("Data outside: ", data);
 
-  const handleClick = () => {
-    localStorage.setItem("cart_total", JSON.stringify(data.length * 700));
-    navigate("/checkout");
+  const handleClick = (e) => {
+    try {
+      fetch(`http://localhost:3500/cart/${e.id}`, {
+        method: "Delete",
+      })
+        .then((d) => d.json())
+        .then((res) => {
+          console.log("White:", res);
+          alert("Removed from cart !!");
+          getData();
+        });
+    } catch (err) {
+      console.log("Error:", err);
+    }
   };
+
+const changePromo = (e) => {
+setPromo(e.target.value);  
+}
+const applyPromo = () => {
+if(promo==="NEW30"){
+setDiscount(data.length*1500*0.3)  
+}else if(promo === "NEW10"){
+  setDiscount(data.length*1500*0.1)  
+}else{
+  alert("Invalid Promo Code !!")
+}
+}
+
+const checkout = () => {
+  navigate("/checkout")
+}
 
   return (
     <div id="cartDiv">
-      <div>
-        <h1 id="cart_head">Services Choosed</h1>
-        <p id="cart_sec_head">We provide you best in class facilities</p>
-      </div>
-
-    {data.length>0 ? <> <div id="service_div">
+      <div id="cartList">
+        <h1 id="cart_main_head">Cart</h1>
         {data.map((e, i) => (
-          <p>
-            {i + 1}. {e}
-          </p>
+          <div key={i} className="cartDiv">
+            <img src={e.image} alt="NA" />
+
+            <div className="cartDetailDiv">
+              <div>
+                {" "}
+                <h3 className="cart_name">{e.wine}</h3>
+                <p className="cart_location">{e.winery}</p>
+              </div>
+            </div>
+            <div className="cartRating">{e.rating.average}⭐</div>
+            <button className="cart_remove_btn" onClick={() => handleClick(e)}>
+              Remove
+            </button>
+          </div>
         ))}
       </div>
-      <div id="cart_bottom">
-        <p id="cart_total">
-          <b>Total Charges :</b> ₹ {data.length * 700} including GST and
-          services charges.
-        </p>
-        <button id="check_btn" onClick={handleClick}>
-          Proceed to Checkout
-        </button>
-      </div> </> : <div id="service_div2">Cart is Empty</div>   }  
-      
-
-
+      <div id="cart_right_div">
+      <h1 id="cart_main_head">Billing Details</h1>
+        <div id="right_sec_div">
+        <p><b>Items in cart : </b> {data.length}</p>
+        <p><b>Price per item : </b>₹ 1500</p>
+         <p><b>Total : </b>₹ {data.length*1500}</p>
+         <p><b>Discount : </b>{discount}</p> 
+         <hr />
+         <p><b>Amount to be Paid : </b>₹ {data.length*1500-discount}</p>
+         <div id="promo_div">
+            <input type="text" placeholder="Enter Promo" onChange={changePromo}/>
+          <button id="promo_btn" onClick={applyPromo}>Apply</button>
+          <p id="promo_code">*use promo NEW30 or NEW10</p>
+           </div>
+          
+         </div>
+         <button id="cart_check_btn" onClick={checkout}>Proceed to Checkout</button> 
+        </div>
     </div>
   );
 };

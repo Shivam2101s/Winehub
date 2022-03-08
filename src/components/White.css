@@ -121,5 +121,9 @@
     color: rgb(212, 27, 27);
     padding: 2px 4px;
     border-radius: 10px;
+    transition: 0.9s;
   }
-  
+  .white_cart_btn:hover{
+    background-color:rgb(212, 27, 27) ;
+    color:white ;
+  }
