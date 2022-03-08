@@ -1,0 +1,125 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  #whiteDivMain {
+    display: flex;
+  }
+  
+  #whiteList {
+    width: 90%;
+    padding: 3%;
+    height: 653px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(4, 23%);
+    gap: 2%;
+    overflow-y: scroll;
+  }
+  .whiteDiv {
+    backdrop-filter: blur(7px);
+    padding: 5px;
+    transition: 0.7s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .whiteDiv:hover {
+    transform: scale3d(1.05, 1.05, 1.05);
+  }
+  .whiteDiv img {
+    width: 40%;
+    height: 250px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  .whiteDetailDiv {
+    width: 100%;
+    height: 80px;
+    background-color: rgb(241, 241, 241);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 5px;
+    border-radius: 5px;
+    color: black;
+    transition: 0.8s;
+  }
+  
+  .whiteDetailDiv:hover {
+    background-color: white;
+  }
+  .whiteRating {
+    border: 2px solid rgb(165, 165, 165);
+    padding: 15px 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-family: "Times New Roman", Times, serif;
+  }
+  
+  .whiteListLink {
+    text-decoration: none;
+    width: 300px;
+    color: black;
+    align-items: center;
+  }
+  
+  #white_sort_filter_div {
+    border-right: 1px solid #d1d1d1;
+    width: 20%;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+  #white_sort_filter_div_head {
+    font-size: 25px;
+    color: white;
+    backdrop-filter: blur(7px);
+  }
+  .white_filterBy {
+    width: 90%;
+    padding: 10px;
+    background-color: rgb(194, 194, 194);
+    border: 2px solid white;
+    color: rgb(206, 9, 9);
+    font-weight: 300;
+    outline: none;
+    font-size: 14px;
+    transition: 0.9s;
+  }
+  .white_filterBy:hover {
+    background-color: rgb(255, 255, 255);
+  }
+  #white_filterDiv {
+    margin-top: 30px;
+  }
+  #white_filterDiv select {
+    margin-top: 30px;
+  }
+  .white_name {
+    font-size: 18px;
+    font-weight: 500;
+    height: 22px;
+    overflow: hidden;
+  }
+  .white_location {
+    font-size: 13px;
+    font-weight: 100;
+    height: 18px;
+    overflow: hidden;
+  }
+  .white_cart_btn {
+    margin-top: 10px;
+    border: 1px solid rgb(212, 27, 27);
+    background-color: white;
+    color: rgb(212, 27, 27);
+    padding: 2px 4px;
+    border-radius: 10px;
+  }
+  

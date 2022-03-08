@@ -1,0 +1,32 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+#navbar {
+  background-color: rgb(134, 9, 9);
+  height: 60px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content:center;
+  gap: 5%;
+  z-index: 10;
+  transition: 0.9s;
+}
+#navbar:hover{
+  background-color: rgb(187, 5, 5);
+}
+.link {
+  text-decoration: none;
+  font-size: 18px;
+  color: rgb(224, 224, 224);
+  font-weight: 100;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.link:hover {
+  color: white;
+  font-size: 20px;
+}

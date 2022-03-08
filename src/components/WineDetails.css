@@ -1,0 +1,80 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+#shopDetailDiv {
+  width: 80%;
+  margin: 20px auto;
+  display: flex;
+  justify-content: space-between;
+}
+#imgDiv {
+  width: 70%;
+}
+#imgDiv img {
+  width: 100%;
+  height: 574px;
+}
+#shopData {
+  width: 30%;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  border-left: 5px solid #f3ebe0;
+  border-top: 1px solid #f3ebe0;
+  backdrop-filter: blur(30px);
+  color: rgb(28, 34, 85);
+  height: 574px;
+}
+
+#backBtn{
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  position: absolute;
+  top: 12vh;
+  left: 8vh;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: grey; 
+  border: 1px solid #888888 ;
+  background-color: rgb(218, 218, 218);
+  transition: 0.5s;
+}
+#backBtn:hover{
+  background-color:white;
+}
+#services_div{
+background-color:white;
+padding: 2% 10%;
+border-radius: 2%;
+}
+#services_div div {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+#services_div div input{
+  height:20px;
+  width: 20px;
+} 
+#addToCartBtn{
+  width: 60%;
+  margin-left: 20%;
+  padding:10px 5px;
+  outline: none;
+  border: none;
+  border-radius:5px ;
+  color: grey; 
+  border: 1px solid #888888 ;
+  background-color: rgb(218, 218, 218);
+  transition: 0.5s;
+}
+#addToCartBtn:hover{
+  background-color:white;
+}

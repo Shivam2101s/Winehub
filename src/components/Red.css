@@ -1,0 +1,122 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#redDivMain {
+  display: flex;
+}
+
+#redList {
+  width: 90%;
+  padding: 3%;
+  height: 653px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(4, 23%);
+  gap: 2%;
+  overflow-y: scroll;
+}
+.redDiv {
+  backdrop-filter: blur(7px);
+  padding: 5px;
+  transition: 0.7s;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.redDiv:hover {
+  transform: scale3d(1.05, 1.05, 1.05);
+}
+.redDiv img {
+  width: 40%;
+  height: 250px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+.redDetailDiv {
+  width: 100%;
+  height: 80px;
+  background-color: rgb(104, 7, 7);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 5px;
+  border-radius: 5px;
+  color: white;
+  transition: 0.8s;
+}
+
+.redDetailDiv:hover {
+  background-color: rgba(214, 6, 6, 0.76);
+}
+.redRating {
+  border: 2px solid rgb(255, 255, 255);
+  padding: 15px 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.redListLink {
+  text-decoration: none;
+  width: 300px;
+  color: black;
+  align-items: center;
+}
+
+#sort_filter_div {
+  border-right: 1px solid #ec0000;
+  width: 20%;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+#sort_filter_div_head {
+  font-size: 25px;
+  color: white;
+  backdrop-filter: blur(7px);
+}
+.filterBy {
+  width: 90%;
+  padding: 10px;
+  background-color: rgb(131, 36, 36);
+  border: 2px solid rgb(206, 9, 9);
+  color: white;
+  font-weight: 300;
+  outline: none;
+  font-size: 14px;
+  transition: 0.9s;
+}
+.filterBy:hover {
+  background-color: rgb(192, 21, 21);
+}
+#filterDiv {
+  margin-top: 30px;
+}
+#filterDiv select {
+  margin-top: 30px;
+}
+.red_name {
+  font-size: 18px;
+  font-weight: 500;
+  height: 20px;
+  overflow: hidden;
+}
+.red_location {
+  font-size: 13px;
+  font-weight: 100;
+}
+.cart_btn {
+  margin: 10px 0;
+  border: 1px solid white;
+  background-color: white;
+  border-radius: 3px;
+  padding: 2px 4px;
+    border-radius: 10px;
+}
