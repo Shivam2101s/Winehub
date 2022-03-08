@@ -1,13 +1,5 @@
-# Puncture-garage-app
+# WineOne- A Wine for everyone
 
-## Deploy Link
-
- Link: https://punctured-shivam2101s.vercel.app
-
-## Demo Video
-
- Link: https://drive.google.com/file/d/1HWo1YzOenSPk2g9FTBnpT9OXuv1GJ6Ji/view?usp=sharing
- 
 ## Run App
 
   ### Go inside directory
